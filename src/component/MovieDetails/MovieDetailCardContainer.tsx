@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import '../../stylesheets/MoviesDetails.css'
+import '../../stylesheets/moviesDetails.css'
 import { useParams } from "react-router-dom";
 import IMovieList from "../../model/IMovie";
 import { getComingSoon, getFavourite, getMoviesInTheaters, getTopRatedIndian, getTopRatedMovies } from "../../service/FetchMovies";
