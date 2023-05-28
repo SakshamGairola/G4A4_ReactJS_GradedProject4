@@ -1,4 +1,4 @@
-import './nopage.css';
+import '../../stylesheets/nopage.css';
 function NoPage() {
     return (
         <div className="container">

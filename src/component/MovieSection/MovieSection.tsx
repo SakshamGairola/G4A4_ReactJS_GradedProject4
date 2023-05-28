@@ -2,7 +2,7 @@ import IMovieList, { IMovieObj } from '../../model/IMovie'
 import { AddToFavouriteContext } from '../../service/createContext'
 import { Button } from 'react-bootstrap'
 import MovieCard from './MovieCard'
-import "./movieList.css"
+import '../../stylesheets/movieList.css'
 
 function MovieSection({ title, moviesList, url, nameData, page }:
     { title: string, moviesList: IMovieObj[], url?: string, nameData?: any, page?: string }) {
