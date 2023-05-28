@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import IMovieList from "../model/IMovie";
 import { getMoviesInTheaters } from "../service/FetchMovies";
+import { filterByName } from "../service/FilterByName";
+import MovieSection from "../component/MovieSection/MovieSection";
 
 function MoviesInTheaters({ movieName, page }: { movieName: string, page?: string }) {
 
@@ -21,10 +23,10 @@ function MoviesInTheaters({ movieName, page }: { movieName: string, page?: strin
         fetchMovies()
     }, []);
 
-    let filter = '';
+    let filter = filterByName(movieName, moviesList);
 
     return (
-        <div>MoviesInTheaters</div>
+        <MovieSection title={title} moviesList={filter || moviesList} url={`/movies-in-theaters`} page={page} />
     )
 }
 
