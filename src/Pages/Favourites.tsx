@@ -4,11 +4,11 @@ import { getFavourite, removeFromFavourite } from "../service/FetchMovies";
 import { filterByName } from "../service/FilterByName";
 import Loader from "../component/Shared/Loader";
 import MovieSection from "../component/MovieSection/MovieSection";
+import Nofavourite from "./NoFavourite";
 
 function Favourites({ movieName }: { movieName: string }) {
 
     const [moviesList, setMovieList] = useState<IMovieList[]>([]);
-    const [loadNoData, setLoadNoData] = useState<boolean>();
 
     useEffect(() => {
         const helper = async () => {
@@ -17,14 +17,6 @@ function Favourites({ movieName }: { movieName: string }) {
         }
         helper();
     }, []);
-
-    useEffect(() => {
-        if (moviesList.length === 0) {
-            setLoadNoData(true);
-        } else {
-            setLoadNoData(false);
-        }
-    }, [moviesList]);
 
     const moviesListData = (movieData: any, type: string) => {
         removeFromFavourite(movieData, type)
@@ -35,7 +27,7 @@ function Favourites({ movieName }: { movieName: string }) {
 
     let filter = filterByName(movieName, moviesList);
 
-    if (loadNoData) return <Loader />
+    if (moviesList.length === 0) return <Nofavourite />
 
     return (
         <MovieSection title={"Favorite"} moviesList={filter || moviesList} nameData={moviesListData} url={'/favourite'} />
