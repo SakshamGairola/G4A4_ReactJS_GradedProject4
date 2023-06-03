@@ -25,6 +25,7 @@ const addToFavourite = async (movieData: any, type: string) => {
         }
     })
         .then(response => response.data)
+        .then(() => alert("Added to favourite"))
         .catch((error: Error | undefined) => alert('Already added'));
     return response;
 }
