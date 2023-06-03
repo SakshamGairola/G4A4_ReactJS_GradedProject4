@@ -21,8 +21,8 @@ const MovieDetailCard = ({ movie }: { movie: IMovieList }) => {
     if (loading) return <Loader />;
     return (
         <Card className={"bg-dark text-white"} style={{ "height": "100%" }}>
-            <Row>
-                <Col md={{ span: 3, offset: 1 }} className="movies-details " style={{ "backgroundImage": `url('${imgBaseUrl}/${movie.poster}')` }}></Col>
+            <div className="row col">
+                <Col md={{ span: 2, offset: 1 }} className="movies-details " style={{ "backgroundImage": `url('${imgBaseUrl}/${movie.poster}')` }}></Col>
                 <Col md={{ span: 7 }}>
                     <Card.Body>
                         <Card.Title><h1>{movie.title}</h1></Card.Title>
@@ -45,8 +45,7 @@ const MovieDetailCard = ({ movie }: { movie: IMovieList }) => {
                         <p><strong>Release Date :</strong> {movie.releaseDate}</p>
                     </Card.Body>
                 </Col>
-            </Row>
-
+            </div>
         </Card>
     )
 }
